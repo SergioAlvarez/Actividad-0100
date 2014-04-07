@@ -30,9 +30,8 @@ public class BallDemo
         int ground = 400;   // position of the ground line
         ArrayList<BouncingBall> arrayBolas = new ArrayList<>();
         Random aleatorio = new Random();
-        int numeroAleatorio = aleatorio.nextInt(101);
         myCanvas.setVisible(true);
-       
+        
         
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
@@ -40,7 +39,12 @@ public class BallDemo
         // crate and show the balls
         for(int i=0; i < numBalls; i++)
         {
-            BouncingBall ball = new BouncingBall(aleatorio.nextInt(100),aleatorio.nextInt(150),aleatorio.nextInt(200),Color.RED, ground, myCanvas);
+            
+            int red = aleatorio.nextInt(256);
+            int green = aleatorio.nextInt(256);
+            int blue = aleatorio.nextInt(256);
+            Color color = new Color(red, green, blue);
+            BouncingBall ball = new BouncingBall(aleatorio.nextInt(100),aleatorio.nextInt(150),aleatorio.nextInt(200),color, ground, myCanvas);
             arrayBolas.add(ball);
            arrayBolas.get(i).draw();
         }
